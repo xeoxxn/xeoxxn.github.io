@@ -4,6 +4,7 @@ title: "MarkDown_Practice"
 info: "MarkDown_Practice in Eureka"
 tech: "MarkDown"
 type: Kookmin
+comments: true
 ---
 
 # 마크다운 연습하기
