@@ -194,7 +194,8 @@ s.setAttribute('data-timestamp', +new Date());
   https, 내 github 주소, 스트림 이름을 입력하고 스트림 만들기 선택
 
       측정 아이디 복사 &rarr; _config.yml에 아래와 같이 추가
-      ![google_analytics](assets/img/analytics.jpg)
+
+![google_analytics](assets/img/analytics.jpg)
 
 - **_적용된 것 확인하기_**
   배포 후, 약간 기다리면 애널리틱스 대시보드에서 카운팅 되는 것을 확인할 수 있다.
