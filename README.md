@@ -186,10 +186,10 @@ s.setAttribute('data-timestamp', +new Date());
 
 ### 9. 구글 애널리틱스 설정하기
 
-- **_초기 설정_**
+- **_초기 설정_** <br/>
   [Google Analytics](https://analytics.google.com/analytics/web/provision/?hl=ko&pli=1#/provision) 계정을 먼저 생성한다.
   측정 시작 버튼 &rarr; 계정 이름 생성 &rarr; 속성 설정 &rarr; 비즈니스 정보 입력
-- **_애널리틱스 데이터 스트림 설정_**
+- **_애널리틱스 데이터 스트림 설정_** <br/>
   웹으로 설정
   https, 내 github 주소, 스트림 이름을 입력하고 스트림 만들기 선택
 
@@ -197,6 +197,6 @@ s.setAttribute('data-timestamp', +new Date());
 
   ![google_analytics](assets/img/analytics.jpg)
 
-- **_적용된 것 확인하기_**
+- **_적용된 것 확인하기_** <br/>
   배포 후, 약간 기다리면 애널리틱스 대시보드에서 카운팅 되는 것을 확인할 수 있다.
   ![count](assets/img/count.jpg)
