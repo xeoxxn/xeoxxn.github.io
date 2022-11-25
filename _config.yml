@@ -3,7 +3,7 @@ title: Xeoxxn_blog
 # baseurl: "/ap"
 github: [metadata]
 url: "https://xeoxxn.github.io"
-google_analytics: # Tracking ID, e.g. "UA-000000-01"
+google_analytics: G-LVW35GS148 # Tracking ID, e.g. "UA-000000-01"
 
 # Author
 author:
@@ -61,7 +61,6 @@ exclude:
   - "LICENSE"
   - "READE.md"
   - "screenshot.png"
-
 
 # Custom vars
 version: 1.1.0
