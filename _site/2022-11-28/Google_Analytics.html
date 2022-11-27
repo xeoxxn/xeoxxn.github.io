@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Xeoxxn_blog</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700"
+  />
+
+  <!-- Font Awesome -->
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/assets/css/fontawesome-all.min.css"
+  />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon.ico">
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-LVW35GS148"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-LVW35GS148");
+  </script>
+
+  <!-- Google Analytics
+  
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i["GoogleAnalyticsObject"] = r;
+      (i[r] =
+        i[r] ||
+        function () {
+          (i[r].q = i[r].q || []).push(arguments);
+        }),
+        (i[r].l = 1 * new Date());
+      (a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]);
+      a.async = 1;
+      a.src = g;
+      m.parentNode.insertBefore(a, m);
+    })(
+      window,
+      document,
+      "script",
+      "//www.google-analytics.com/analytics.js",
+      "ga"
+    );
+
+    ga("create", "G-LVW35GS148", "auto");
+    ga("send", "pageview");
+  </script>
+   -->
+</head>
+
+
+  <body>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/">
+          <h2 class="nav-title">Xeoxxn_blog</h2>
+        </a>
+        <ul>
+          <li><a href="/">About</a></li>
+          <li><a href="/portfolio/">Portfolio</a></li>
+        </ul>
+    </div>
+  </nav>
+
+    <main>
+      <div class="post">
+  <h2 class="post-title">Google_Analytics</h2>
+  <div class="post-line"></div>
+
+  <h2 id="9-구글-애널리틱스-설정하기">9. 구글 애널리틱스 설정하기</h2>
+
+<ul>
+  <li>
+    <h3 id="초기-설정">초기 설정</h3>
+
+    <p><a href="&quot;https://analytics.google.com/analytics/web/?hl=ko#/p343826126/reports/intelligenthome&quot;">Google Analytics</a> 계정을 먼저생성한다.
+측정 시작 버튼 → 계정 이름 생성 → 속성 설정 → 비즈니스 정보 입력</p>
+  </li>
+  <li>
+    <h3 id="애널리틱스-데이터-스트림-설정">애널리틱스 데이터 스트림 설정</h3>
+
+    <p>웹으로 설정 https, 내 github 주소, 스트림 이름을 입력하고 스트림 만들기 선택
+측정 아이디 복사 → _config.yml에 tracking id 추가</p>
+  </li>
+  <li>
+    <h3 id="오류">오류</h3>
+
+    <p>위와 같이 적용하였을 때, 제대로 연결이 되지 않았다.
+그 이유를 검색해 본 결과, 테마에 따라 <code class="language-plaintext highlighter-rouge">Google 애널리틱스</code>와 <code class="language-plaintext highlighter-rouge">유니버셜 애널리틱스</code>로 나뉜다는 것을 알았다.<br />
+가장 큰 차이점은 설치스크립트가 다른 점이다. 또한 구글 검색 시 대부분 이전 버전 기준으로 설명하고 있어서 관련 자료를 찾기 힘들다.
+또한 둘은 측정 ID 형식이 다른데,</p>
+
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">G-XXXXXXXX</code> 형식 → <code class="language-plaintext highlighter-rouge">Google Analytics 4</code>를 사용한다는 뜻이고,</li>
+      <li><code class="language-plaintext highlighter-rouge">UA-XXXXXXX</code> 형식 → <code class="language-plaintext highlighter-rouge">유니버셜 애널리틱스</code>를 사용한다는 걸 뜻한다.</li>
+    </ul>
+
+    <h5 id="블로그에-적용하는-방법">블로그에 적용하는 방법</h5>
+
+    <p>나의 경우, UA 형식을 사용하기 때문에, 유니버셜 애널리틱스의 경우를 차용했다.</p>
+
+    <h6 id="ga4를-디폴트로-지원하지-않는-테마에-ga4를-붙여주었다">ga4를 디폴트로 지원하지 않는 테마에 ga4를 붙여주었다.</h6>
+
+    <p><code class="language-plaintext highlighter-rouge">_includes</code> 폴더로 이동하여 <code class="language-plaintext highlighter-rouge">head.html</code>에 스크립트를 삽입해 준다.</p>
+
+    <ul>
+      <li>스크립트는 <code class="language-plaintext highlighter-rouge">관리 &gt; 데이터 스트림 &gt; 계정 생성할때 생성했던 스크림 &gt; 태그 안내 보기 &gt; 직접 설치</code> 에서 수동으로 아래의 코드를 붙여넣기 해주면 된다.</li>
+    </ul>
+
+    <div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c">&lt;!-- Google tag (gtag.js) --&gt;</span>
+<span class="nt">&lt;script
+  </span><span class="na">async</span>
+  <span class="na">src=</span><span class="s">"https://www.googletagmanager.com/gtag/js?id=G-LVW35GS148"</span>
+<span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script&gt;</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nx">dataLayer</span> <span class="o">||</span> <span class="p">[];</span>
+  <span class="kd">function</span> <span class="nx">gtag</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">dataLayer</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="nx">gtag</span><span class="p">(</span><span class="dl">"</span><span class="s2">js</span><span class="dl">"</span><span class="p">,</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">());</span>
+
+  <span class="nx">gtag</span><span class="p">(</span><span class="dl">"</span><span class="s2">config</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">G-LVW35GS148</span><span class="dl">"</span><span class="p">);</span>
+<span class="nt">&lt;/script&gt;</span>
+</code></pre></div>    </div>
+
+    <p>그 후 깃허브에 수정한 소스코드를 올리고,<br />
+ 개발자 도구를 킨 후 <code class="language-plaintext highlighter-rouge">gtag</code>를 입력해보고<br />
+ 정상적으로 설치된 것을 확인한다.</p>
+  </li>
+</ul>
+
+</div>
+
+<div class="pagination">
+  
+  <h2>Comments</h2>
+  <div id="disqus_thread"></div>
+  <script>
+    /**
+     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    let PAGE_URL = "http://localhost:4000/2022-11-28/Google_Analytics";
+    let PAGE_IDENTIFIER = "/2022-11-28/Google_Analytics";
+    var disqus_config = function () {
+      this.page.url = PAGE_URL; // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+
+    (function () {
+      // DON'T EDIT BELOW THIS LINE
+      var d = document,
+        s = d.createElement("script");
+      s.src = "https://xeoxxn-blog.disqus.com/embed.js";
+      s.setAttribute("data-timestamp", +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript
+    >Please enable JavaScript to view the
+    <a href="https://disqus.com/?ref_noscript"
+      >comments powered by Disqus.</a
+    ></noscript
+  >
+    
+  <a href="/2022-11-23/MarkDown_Practice" class="right next"
+    >Next</a
+  >
+  
+
+  <a href="#" class="top">Top</a>
+</div>
+
+    </main>
+
+    <footer>
+      <span>
+        &copy; <time datetime="2022-11-28 01:53:50 +0900">2022</time> Seojun Lee. <a href="https://github.com/kssim/about-portfolio/">A.P</a> theme by kssim.
+      </span>
+    </footer>
+  </body>
+</html>
